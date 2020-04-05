@@ -1,8 +1,12 @@
 version: 2.1
+orbs:
+  win: circleci/windows@1.0.0
 jobs:
-  build-android:
-    docker:
-      - image: circleci/android:api-25-alpha
+  build-windows:
+    executor: win/vs2019
+    steps:
+      - checkout
+      - run: Write-Host 'Hello, Windows'
   build:
     docker:
       - image: circleci/node:4.8.2
